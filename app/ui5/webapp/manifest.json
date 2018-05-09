@@ -1,0 +1,82 @@
+{
+    "_version": "1.8.0",
+    "sap.app": {
+        "id": "aniversarios",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "applicationVersion": {
+            "version": "1.0.0"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "aniversarios.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "app"
+        },
+        "dependencies": {
+            "minUI5Version": "1.30",
+            "libs": {
+                "sap.m": {}
+            }
+        },
+        "models": {
+            "i18n": {
+                "type" : "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "funcionario": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "model/Funcionarios.json"
+            },
+            "funcionarioSelecionado": {
+                "type": "sap.ui.model.json.JSONModel"
+            }
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "aniversarios.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "async": true
+            },
+            "routes": [{
+                    "name": "ListaMes",
+                    "pattern": "",
+                    "target": ["ListaMes"]
+                },
+                {
+                    "name": "ListaDia",
+                    "pattern": "ListaDia/{value}",
+                    "target": ["ListaDia"]
+                }
+            ],
+            "targets": {
+                "ListaMes": {
+                    "viewType": "XML",
+                    "viewLevel": 0,
+                    "viewName": "ListaMes"
+                },
+                "ListaDia": {
+                    "viewType": "XML",
+                    "viewLevel": 0,
+                    "viewName": "ListaDia"
+                }
+            }
+        }
+
+    }
+}

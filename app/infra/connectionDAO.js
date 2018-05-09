@@ -2,8 +2,8 @@ function connectionDAO(connection){
     this._connection = connection;
 };
 
-connectionDAO.prototype.lista = function(callback){
-    this._connection.query('SELECT * FROM funcionarios', callback);
+connectionDAO.prototype.listarFuncionarios = function(callback){
+    this._connection.query('SELECT * FROM funcionarios WHERE inativo <> 1', callback);
 };
 
 connectionDAO.prototype.inserirfuncionario = function(funcionario, callback){
