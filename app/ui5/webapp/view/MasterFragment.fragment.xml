@@ -1,24 +1,23 @@
 <core:FragmentDefinition
     xmlns="sap.m"
-    xmlns:core="sap.ui.core"
-    xmlns:u="sap.ui.unified" >
+    xmlns:core="sap.ui.core" >
     <Panel
         headerText="{i18n>panel1}"
         expanded="true"
-        content="{ path: 'funcionario>/Funcionarios' }" >
+        background="transparent"
+        content="{ path: '/' }" >
         <content>
             <GenericTile
                 class="sapUiTinyMarginBegin sapUiTinyMarginTop"
-                header="{funcionario>ProductName}"
-                backgroundImage="{= ${funcionario>Status} === 'B' ? 'http://noticias.universia.cl/cl/images/investigacion/c/co/com/comunicacion-interna-empresas-importancia-noticia.jpg' 
+                header="{nome}"
+                backgroundImage="{= ${foto} === '' ? 'http://noticias.universia.cl/cl/images/investigacion/c/co/com/comunicacion-interna-empresas-importancia-noticia.jpg' 
                                 : 'http://brainstormindia.com/innerimages/sap-consulting.png' }"
 		        frameType="TwoByOne"
                 press="onPress">
-                <TileContent
-                    footer="{funcionario>Quantity}">
+                <TileContent>
                     <NewsContent
-						contentText="{funcionario>ShipperName}"
-						subheader="{funcionario>ShippedDate}" />
+						contentText="{funcao}"
+						subheader="{nascimento}" />
                 </TileContent>
             </GenericTile>
         </content>

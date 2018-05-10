@@ -13,10 +13,10 @@
                 transitionTime="250" displayTime="2500"
                 class="sapUiTinyMarginBegin sapUiTinyMarginTop">
                 <GenericTile
-                    header="{funcionarioSelecionado>ProductName}"
+                    header="{nome}"
                     backgroundImage="http://brainstormindia.com/innerimages/sap-consulting.png">
                     <TileContent
-                        footer="{funcionarioSelecionado>ShipperName}"/>
+                        footer="{funcao}"/>
                 </GenericTile>
             </SlideTile>
         </Panel>

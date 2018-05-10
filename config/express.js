@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var consign = require('consign');
+var load = require('express-load');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var ui5Router = require('../app/ui5/ui5Router');
@@ -15,12 +15,8 @@ module.exports = function() {
     app.use(bodyParser.urlencoded({extended:true}));
     app.use(expressValidator());
  
-    consign({
-        cwd: 'app',
-        extensions: ['.js', '.json', '.node'],
-        verbose: false
-    })
-        .include('model')
+    load('infra', { cwd: 'app' })
+        .then('model')
         .then('controller')
         .then('routes')
         .into(app);

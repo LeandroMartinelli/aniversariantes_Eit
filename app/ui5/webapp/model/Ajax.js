@@ -7,10 +7,16 @@ sap.ui.define([
 
 	return {
 
-		createModel: function (oComponent) {
+		createModel: function (oComponent, select) {
 			var oModel = new JSONModel();
 
-			var URL = oComponent.URL + '/funcionarios';
+			var URL = "";
+			if (select == "mes"){
+				URL = oComponent.URL +'/funcionarios';
+			} else if (select == "dia") {
+				URL = oComponent.URL +'/funcionariosDoDia';
+			};
+
 			var json = {};
 			$.ajax({
 				url: URL,
@@ -22,38 +28,17 @@ sap.ui.define([
 				},
 				success: function (res) {
 					var oData = [];
-					var item = {};
-					var clientName;
+					var Nome;
 					for (var i = 0; i < res.length; i++) {
 						var obj = {};
-						var available = 0,
-							using = 0;
-						clientName = res[i].clientName;
-						if (clientName !== item.client) {
-							item.client = res[i].clientName;
-							obj.client = res[i].clientName;
-							obj.link = res[i].confluenceLink;
-							obj.details = [];
-							for (var i_aux = 0; i_aux < res.length; i_aux++) {
-								if (clientName === res[i_aux].clientName) {
-									available++;
-									var detail = {};
-									detail.id = res[i_aux].id;
-									detail.onUse = res[i_aux].onUse;
-									if (detail.onUse === 1) {
-										using++;
-									}
-									detail.timeOn = res[i_aux].timeOn;
-									obj.details.push(detail);
-								}
-							}
-							obj.using = using;
-							obj.available = available
-							oData.push(obj);
+                        obj.nome = res[i].nome;
+                        obj.nascimento = res[i].nascimento;
+                        obj.funcao = res[i].funcao;
+                        oData.push(obj);
 						}
-					}
 					oModel.setData(oData);
 					oModel.fireEvent("requestCompleted");
+
 					return oModel;
 				},
 				error: function (error) {

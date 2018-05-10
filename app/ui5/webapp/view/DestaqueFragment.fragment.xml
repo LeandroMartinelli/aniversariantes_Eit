@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    controllerName="aniversarios.controller.ListaDia">
+    <Panel>
+        <content>
+            <SlideTile
+                tiles="{path : 'funcionarioSelecionado>/'}"
+                transitionTime="250" displayTime="2500"
+                class="sapUiTinyMarginBegin sapUiTinyMarginTop">
+                <GenericTile
+                    header="{funcionarioSelecionado>nome}"
+                    backgroundImage="http://brainstormindia.com/innerimages/sap-consulting.png">
+                    <TileContent
+                        footer="{funcionarioSelecionado>funcao}"/>
+                </GenericTile>
+            </SlideTile>
+        </content>
+    </Panel>
+</core:FragmentDefinition> 

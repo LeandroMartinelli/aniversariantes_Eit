@@ -9,7 +9,7 @@
             "type": "node",
             "request": "launch",
             "name": "Debug Backend",
-            "program": "${/app.js}"
+            "program": "/Users/leandromartinelli/Documents/ABAP_e-it/Aniversario_eit/app.js"
         }
     ]
 }

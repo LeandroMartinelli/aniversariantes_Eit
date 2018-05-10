@@ -23,9 +23,15 @@ sap.ui.define([
                 this.URL = "http://" + url.hostname;
             }
             
-            var oModel = model.createModel(this);
-            this.setModel(oModel);
+            var that = this;
 
+            var oModel = model.createModel(this, "mes");
+            this.setModel(oModel);
+            
+            var oModelDia = model.createModel(this, "dia");
+            this.setModel(oModelDia, "funcionarioSelecionado");
+
+            
             this.getModel().attachEventOnce("requestCompleted", function() {
                 that.getRouter().initialize();
             });

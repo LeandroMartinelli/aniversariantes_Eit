@@ -7,6 +7,9 @@
         title="{i18n>pag1}">
         <content>
             <core:Fragment 
+                fragmentName="aniversarios.view.DestaqueFragment" 
+                type="XML" />
+            <core:Fragment 
                 fragmentName="aniversarios.view.MasterFragment" 
                 type="XML" />
         </content>

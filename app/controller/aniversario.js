@@ -17,13 +17,28 @@ module.exports = function (app){
             connectionDAO.listarFuncionarios(function(error, result) {
                 if (error) {
                     console.log("Erro no DB" + error);
-                } else {
-                    res.format({
-                        json:function() {
-                            res.json(resilt);
-                        }
-                    });
                 }
+                res.format({
+                    json: function() {
+                        res.json(result);
+                    }
+                });
+            });
+        },
+
+        funcionariosDoDia: function(req, res) {
+            var connectionDAO = new app.infra.connectionDAO(app);
+            var modelFuncionario = new app.model.funcionarios();
+
+            connectionDAO.FuncionariosDoDia(function(error, result) {
+                if (error) {
+                    console.log("Erro no DB" + error);
+                }
+                res.format({
+                    json: function() {
+                        res.json(result);
+                    }
+                });
             });
         }
 

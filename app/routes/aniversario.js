@@ -6,5 +6,6 @@ module.exports = function(app){
     app.post('/POST_cadastro', controller.POST_cadastro);
 
     app.get('/funcionarios', controller.funcionarios);
+    app.get('/funcionariosDoDia', controller.funcionariosDoDia);
 
 }
